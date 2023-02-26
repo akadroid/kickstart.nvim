@@ -112,6 +112,14 @@ require('lazy').setup({
     },
   },
 
+  { -- Theme inspired by Atom 
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'onedark'
+    end,
+  },
+
   { -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
@@ -199,7 +207,7 @@ vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
-vim.o.breakindent = true
+--vim.o.breakindent = true
 
 -- Save undo history
 vim.o.undofile = true
@@ -399,7 +407,7 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
@@ -485,5 +493,11 @@ cmp.setup {
   },
 }
 
+vim.o.tabstop=4
+vim.o.expandtab=true
+vim.o.softtabstop=4
+vim.o.shiftwidth=4
+
+--require'nvim-treesitter.configs'.setup { indent = { enable = true }, }
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
